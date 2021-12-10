@@ -16,7 +16,7 @@ class TestViews(TestSetUp):
         self.client.post(self.register_url, self.user_data, format="json")
         self.client.post(self.login_url)
         res = self.client.post(self.login_url, self.user_data, format="json")
-        self.assertEqual(res.status_code, 201)
+        self.assertEqual(res.status_code, 200)
 
 
 
