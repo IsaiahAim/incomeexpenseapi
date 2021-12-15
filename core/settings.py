@@ -15,6 +15,7 @@ from datetime import timedelta
 import os
 import os
 from dotenv import load_dotenv
+import django_heroku
 
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -199,3 +200,4 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(days=7),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=14),
 }
+django_heroku.settings(locals())
