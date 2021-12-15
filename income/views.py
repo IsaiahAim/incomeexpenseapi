@@ -1,4 +1,5 @@
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+
 from rest_framework.permissions import IsAuthenticated
 
 from .serializers import IncomeSerializer
@@ -21,7 +22,7 @@ class IncomeListAPIView(ListCreateAPIView):
         return self.queryset.filter(owner=self.request.user)
 
 
-class IncomeDetailAPIView(RetrieveUpdateAPIView):
+class IncomeDetailAPIView(RetrieveUpdateDestroyAPIView):
     serializer_class = IncomeSerializer
     queryset = Income.objects.all()
     permission_classes = [IsAuthenticated, IsOwner]
